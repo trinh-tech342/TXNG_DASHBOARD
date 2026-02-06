@@ -82,15 +82,20 @@ window.searchForward = async function() {
 function renderTraceBack(materials, prodSteps, lot) {
     const container = document.getElementById('dashboard-view');
     
-    const matHtml = materials.map(m => `
-        <div class="stat-item" style="border-left:3px solid #27ae60">
-            <label>${m[1]}</label><span>NCC: ${m[2]}</span><small>Ngày nhập: ${m[0]}</small>
-        </div>`).join('');
+    // Chuyển Nguyên liệu sang dạng bảng
+    const matTableRows = materials.map(m => `
+        <tr>
+            <td><i class="fas fa-leaf" style="color: #27ae60;"></i> <b>${m[1]}</b></td>
+            <td>${m[2]}</td>
+            <td style="color: #7f8c8d;">${m[0]}</td>
+        </tr>`).join('');
 
     const prodRows = prodSteps.map(p => `
         <tr>
             <td><b>${p[1]}</b></td>
-            <td>${p[2]}</td> <td>${p[3]}</td> <td><small>${p[5]} ${p[4]} → ${p[7]} ${p[6]}</small></td>
+            <td style="text-align:center">${p[2]}</td>
+            <td style="text-align:center">${p[3]}</td>
+            <td><small>${p[5]} ${p[4]} → ${p[7]} ${p[6]}</small></td>
         </tr>`).join('');
 
     container.innerHTML = `
@@ -102,14 +107,32 @@ function renderTraceBack(materials, prodSteps, lot) {
                 <div class="stat-item"><label>Khách hàng</label><span>${lot ? lot[3] : '---'}</span></div>
             </div>
         </div>
+
         <div class="card">
-            <div class="card-header"><i class="fas fa-leaf"></i> NGUYÊN LIỆU ĐẦU VÀO</div>
-            <div class="stat-grid">${matHtml || 'Chưa cập nhật'}</div>
+            <div class="card-header"><i class="fas fa-list-ul"></i> NGUYÊN LIỆU ĐẦU VÀO</div>
+            <table class="dash-table">
+                <thead>
+                    <tr>
+                        <th>Tên nguyên liệu</th>
+                        <th>Nhà cung cấp</th>
+                        <th>Ngày nhập</th>
+                    </tr>
+                </thead>
+                <tbody>${matTableRows || '<tr><td colspan="3">Chưa có dữ liệu</td></tr>'}</tbody>
+            </table>
         </div>
+
         <div class="card">
             <div class="card-header"><i class="fas fa-cogs"></i> QUY TRÌNH SẢN XUẤT</div>
-            <table>
-                <thead><tr><th>Bước</th><th>Số lượng</th><th>Thông số</th><th>Thời gian</th></tr></thead>
+            <table class="dash-table">
+                <thead>
+                    <tr>
+                        <th>Công đoạn</th>
+                        <th style="text-align:center">Số lượng</th>
+                        <th style="text-align:center">Thông số</th>
+                        <th>Thời gian</th>
+                    </tr>
+                </thead>
                 <tbody>${prodRows || '<tr><td colspan="4">N/A</td></tr>'}</tbody>
             </table>
         </div>`;
