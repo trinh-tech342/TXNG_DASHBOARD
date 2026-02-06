@@ -158,3 +158,65 @@ td { padding: 12px 10px; border-bottom: 1px solid #f9f9f9; }
     width: 100%;
     box-sizing: border-box;
 }
+/* Làm đẹp các thẻ nội dung nhỏ */
+.stat-item {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+}
+
+.stat-item:hover {
+    transform: translateX(5px);
+}
+
+.stat-item label {
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px; /* Tạo khoảng cách với nội dung bên dưới */
+}
+
+.stat-item span {
+    display: block; /* Ép xuống dòng nếu cần */
+    margin-top: 5px;
+}
+
+/* Khoảng cách cho bảng sản xuất */
+.prod-table td {
+    padding: 15px 10px; /* Tăng độ dày hàng để dễ đọc */
+    line-height: 1.5;
+}
+.dash-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.dash-table th {
+    background: #f8fafc;
+    color: #64748b;
+    text-align: left;
+    padding: 12px 10px;
+    border-bottom: 2px solid #edf2f7;
+    text-transform: uppercase;
+    font-size: 11px;
+}
+
+.dash-table td {
+    padding: 12px 10px;
+    border-bottom: 1px solid #f1f5f9;
+    color: #334155;
+    vertical-align: middle;
+}
+
+.dash-table tbody tr:hover {
+    background-color: #f1f5f9; /* Hiệu ứng đổi màu khi di chuột vào dòng */
+}
+
+/* Định dạng nhỏ cho phần thời gian */
+.dash-table small {
+    display: block;
+    color: #94a3b8;
+    line-height: 1.4;
+}
