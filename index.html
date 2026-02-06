@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Truy Xuất Nguồn Gốc</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+      <aside class="sidebar">
+          <div class="logo"><i class="fas fa-microchip"></i> TraceSystem</div>
+          
+          <nav>
+              <div class="search-section">
+                  <label class="search-label"><i class="fas fa-history"></i> TRUY XUẤT NGƯỢC</label>
+                  <input type="text" id="searchInput" placeholder="Nhập Số Lô Sản Phẩm...">
+                  <button onclick="searchData()"><i class="fas fa-search"></i> Kiểm tra Lô</button>
+              </div>
+
+              <div class="divider"></div>
+
+              <div class="search-section">
+                  <label class="search-label"><i class="fas fa-arrow-right"></i> TRUY XUẤT XUÔI</label>
+                  <input type="text" id="searchMaterialInput" placeholder="Nhập Mã Nguyên Liệu/NCC...">
+                  <button onclick="searchForward()" class="btn-forward"><i class="fas fa-route"></i> Tìm Sản Phẩm</button>
+              </div>
+          </nav>
+
+          <div class="sidebar-footer">
+              <a href="https://docs.google.com/spreadsheets/d/1EqP_Uph6b7L-UPYcmmrQqVvUuGbhQaaCIbGPtm3LVJw/edit" target="_blank">
+                  <i class="fab fa-google-drive"></i> Nguồn Dữ Liệu
+              </a>
+          </div>
+      </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <h2>BẢNG ĐIỀU KHIỂN QUY TRÌNH SẢN XUẤT</h2>
+                <div id="last-update">Trạng thái: Sẵn sàng</div>
+            </header>
+
+            <div id="dashboard-view" class="dashboard-grid">
+                <div class="empty-welcome">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Sẵn sàng tra cứu</h3>
+                    <p>Vui lòng nhập số lô sản xuất vào ô bên trái để hiển thị dữ liệu.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js?v=dash"></script>
+</body>
+</html>
